@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#797979"
+    android:gravity="center"
+    tools:context="com.example.icd10_version2010.MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="300dp"
+        android:layout_height="137dp"
+        android:layout_below="@+id/tableRow1"
+        android:layout_marginTop="8dp" >
+
+        <Button
+            android:id="@+id/btn_training"
+            android:layout_width="146dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#BABABA"
+            android:scaleType="center"
+            android:text="@string/btn_training" />
+
+        <ImageView
+            android:id="@+id/imagetrain"
+            android:layout_width="146dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/train" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="300dp"
+        android:layout_height="137dp"
+        android:layout_below="@+id/tableRow1"
+        android:layout_marginTop="8dp" >
+
+        <ImageView
+            android:id="@+id/imagestatistics"
+            android:layout_width="146dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/stts" />
+
+        <Button
+            android:id="@+id/btn_estatisticas"
+            android:layout_width="146dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#BABABA"
+            android:scaleType="center"
+            android:text="@string/btn_estatisticas" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="300dp"
+        android:layout_height="137dp"
+        android:layout_below="@+id/tableRow2"
+        android:layout_marginTop="8dp" >
+
+        <Button
+            android:id="@+id/btn_historico"
+            android:layout_width="146dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#BABABA"
+            android:scaleType="center"
+            android:text="@string/btn_historico" />
+
+        <ImageView
+            android:id="@+id/imagehistoric"
+            android:layout_width="146dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/historic" />
+    </TableRow>
+
+</RelativeLayout>

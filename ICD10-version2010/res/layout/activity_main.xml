@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center"
+    tools:context="com.example.icd10_version2010.MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="300dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="8dp" >
+
+        <ImageButton
+            android:id="@+id/imageHome"
+            android:layout_width="300dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="8dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/holo_blue_light"
+            android:scaleType="center"
+            android:src="@drawable/home" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="300dp"
+        android:layout_height="137dp"
+        android:layout_below="@+id/tableRow1"
+        android:layout_marginTop="8dp" >
+
+        <ImageButton
+            android:id="@+id/imageFavorite"
+            android:layout_width="107dp"
+            android:layout_height="137dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/holo_blue_light"
+            android:scaleType="center"
+            android:src="@drawable/favorite" />
+
+        <ImageButton
+            android:id="@+id/imageSearch"
+            android:layout_width="185dp"
+            android:layout_height="137dp"
+            android:layout_marginLeft="4dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/holo_blue_light"
+            android:scaleType="center"
+            android:src="@drawable/search" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="300dp"
+        android:layout_height="137dp"
+        android:layout_below="@+id/tableRow2"
+        android:layout_marginTop="8dp" >
+
+        <ImageButton
+            android:id="@+id/imageQuestion"
+            android:layout_width="185dp"
+            android:layout_height="137dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/holo_blue_light"
+            android:scaleType="center"
+            android:src="@drawable/question" />
+
+        <ImageButton
+            android:id="@+id/imageChart"
+            android:layout_width="107dp"
+            android:layout_height="137dp"
+            android:layout_marginLeft="8dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/holo_blue_light"
+            android:scaleType="center"
+            android:src="@drawable/chart" />
+    </TableRow>
+
+</RelativeLayout>

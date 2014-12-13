@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/flipBloco1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/listViewBlocoFavoritos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/flipBloco2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/titleBloco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#8AB8E6"
+                android:drawableRight="@drawable/undo"
+                android:gravity="left|center_vertical"
+                android:minHeight="40dp"
+                android:paddingLeft="30dp"
+                android:text="Text"
+                android:textColor="#292929" />
+
+            <ExpandableListView
+                android:id="@+id/ParentLevelBloco"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:groupIndicator="@null" >
+            </ExpandableListView>
+        </LinearLayout>
+    </ViewFlipper>
+
+</RelativeLayout>

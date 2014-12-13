@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ICD-10</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_favoritos">Favoritos</string>
+    <string name="title_section1">Capítulo</string>
+    <string name="title_section2">Bloco</string>
+    <string name="title_section3">Código</string>
+    <string name="title_activity_pesquisar">Pesquisar</string>
+    <string name="title_activity_estatisticas">Estatísticas</string>
+    <string name="title_activity_home">Home</string>
+    <string name="ok_alert">Sim</string>
+    <string name="cancelar_alert">Não</string>
+    <string name="txtTempoTotal">Tempo total(leitura e instaciação):</string>
+    <string name="txtTempoTotalValue"></string>
+    <string name="txtLeituraCapitulos">Tempo de leitura capítulos:</string>
+    <string name="txtLeituraCapitulosValue"></string>
+    <string name="txtLeituraBlocos">Tempo de leitura blocos:</string>
+    <string name="txtLeituraBlocosValue"></string>
+    <string name="txtLeituraCodigos">Tempo de leitura códigos:</string>
+    <string name="txtLeituraCodigosValue"></string>
+    <string name="txtTotalCapitulos">Total de Capítulos Lidos:</string>
+    <string name="txtTotalCapitulosValue"></string>
+    <string name="txtTotalItems">Total de Items lidos:</string>
+    <string name="txtTotalItemsValue"></string>
+    <string name="txtTotalCap">Total de Capítulos:</string>
+    <string name="txtTotalBloco">Total de Blocos Lidos:</string>
+    <string name="txtTotalBlocosValue"></string>
+    <string name="txtTotalCodigos">Total de Códigos Lidos:</string>
+    <string name="title_activity_questoes">QuestoesActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="btn_training">Training</string>
+    <string name="btn_estatisticas">Estatísticas</string>
+    <string name="btn_historico">Histórico</string>
+    <string name="title_activity_training">TrainingActivity</string>
+    <string name="title_activity_estat_quest">EstatQuestActivity</string>
+    <string name="title_activity_historico_quest">HistoricoQuestActivity</string>
+    <string name="btn_ComecarTraining">Iniciar</string>
+    <string name="txt_tutorial">Tutorial</string>
+    <string name="btn_PergSeguinte">Submeter</string>
+    <string name="btn_terminarTrain">Terminar</string>
+    <string name="radiobtn0"></string>
+    <string name="radioBtn1"></string>
+    <string name="radioBtn2"></string>
+    <string name="radioBtn3"></string>
+    <string name="txt_acertou_resposta">Acertou a resposta!</string>
+    <string name="txt_tempoResp">"Tempo de Resposta: "</string>
+    <string name="txt_tempo_resp_value"></string>
+
+</resources>

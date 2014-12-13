@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.icd10_version2010.TrainingActivity" >
+
+    <ViewFlipper
+        android:id="@+id/viewFlipperTraining"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <LinearLayout
+            android:id="@+id/flipComecar"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:background="@drawable/questiont" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="Tutorial"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="9dp"
+                android:paddingRight="8dp"
+                android:text="Para as seguintes questões selecione o código ou descrição correcto. Bom Treino!"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/btn_Iniciar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="180dp"
+                android:text="@string/btn_ComecarTraining" />
+        </LinearLayout>
+ <RelativeLayout
+        android:id="@+id/flipQuestoes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txt_Pergunta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="TextView"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <RadioGroup
+            android:id="@+id/radioQuestoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txt_Pergunta"
+            android:layout_marginTop="25dp"
+            android:paddingTop="20dp" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobtn0"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioBtn1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioBtn2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radioBtn3"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_pergSeguinte"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/radioQuestoes"
+            android:layout_marginTop="50dp"
+            android:text="@string/btn_PergSeguinte" />
+
+        <Button
+            android:id="@+id/btn_terminarTraining"
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btn_pergSeguinte"
+            android:layout_alignBottom="@+id/btn_pergSeguinte"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/btn_pergSeguinte"
+            android:text="@string/btn_terminarTrain" />
+
+    </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/flipFeedback"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ViewFlipper>
+
+</RelativeLayout>

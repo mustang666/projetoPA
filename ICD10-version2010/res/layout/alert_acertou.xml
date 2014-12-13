@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/border_alert"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <TextView
+        android:id="@+id/rAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="15dp"
+        android:shadowColor="#2ea742"
+        android:shadowDx="-2"
+        android:shadowDy="2"
+        android:shadowRadius="0.01"
+        android:text="@string/txt_acertou_resposta"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txtTempoR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rAnswer"
+        android:text="@string/txt_tempoResp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txtTempoResp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtTempoR"
+        android:layout_alignTop="@+id/txtTempoR"
+        android:layout_toRightOf="@+id/txtTempoR"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

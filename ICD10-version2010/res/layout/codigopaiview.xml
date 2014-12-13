@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/codigoPai"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ADD6FF"
+    android:drawableLeft="@drawable/seta"
+    android:gravity="left"
+    android:minHeight="30dp"
+    android:paddingLeft="30dp"
+    android:textColor="#292929" >
+</TextView>

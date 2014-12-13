@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/flip1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/listViewCapFavoritos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/flip2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/titleCap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textviewcustom"
+                android:gravity="left|center_vertical"
+                android:minHeight="50dp"
+                android:paddingLeft="25dp"
+                android:drawableRight="@drawable/undo"
+                android:text="text" >
+            </TextView>
+
+            <ExpandableListView
+                android:id="@+id/ParentLevelCapitulo"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:groupIndicator="@null" >
+            </ExpandableListView>
+        </LinearLayout>
+    </ViewFlipper>
+
+</RelativeLayout>

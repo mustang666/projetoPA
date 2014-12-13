@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.icd10_version2010.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    
+    <item
+        android:id="@+id/upload"
+        android:icon="@drawable/upload"
+        android:showAsAction="always"
+        android:title="@+string/Upload">
+    
+        <menu>
+            <item
+                android:id="@+id/fastWay"
+                android:title="Ler(Rápido)">
+            </item>
+            <item
+                android:id="@+id/slowWay"
+                android:title="Ler (Lento)">
+            </item>
+        </menu>
+    </item>
+   
+
+</menu>
