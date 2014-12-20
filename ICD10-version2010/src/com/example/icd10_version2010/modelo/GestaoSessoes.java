@@ -39,5 +39,35 @@ public class GestaoSessoes implements Serializable {
 		return arvore.iteradorEmOrdem();
 	}
 	
+//	SimpleDateFormat dt = new SimpleDateFormat("dd-MM-yyyy");
+//	
+//	
+//	try {
+//		Sessao s1 = new Sessao(new Date(), 35, 5, 2, 55, 10, 3);
+//		Sessao s2 = new Sessao(dt.parse("16-12-2014"), 50, 5, 2, 55, 10, 3);
+//		Sessao s3 = new Sessao(dt.parse("15-12-2014"), 90, 5, 2, 55, 10, 3);
+//		Sessao s4 = new Sessao(new Date(), 80, 5, 2, 55, 10, 3);
+//
+//		GestaoSessoes.getInstance().inserirSessao(s1);
+//		GestaoSessoes.getInstance().inserirSessao(s2);
+//		GestaoSessoes.getInstance().inserirSessao(s3);
+//		GestaoSessoes.getInstance().inserirSessao(s4);
+//	} catch (ParseException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
+//	
+//	
+//	Sessao aux;
+//	
+//	 Iterador<Sessao> iteradorArvore =
+//			 GestaoSessoes.getInstance().listaSessoes();
+//	    while (iteradorArvore.podeAvancar()) {
+//	      aux = iteradorArvore.avancar();
+//	     
+//	        System.out.println(aux);
+//	      
+//	    }
+	
 	
 }
