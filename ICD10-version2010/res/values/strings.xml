@@ -47,5 +47,7 @@
     <string name="txt_acertou_resposta">Acertou a resposta!</string>
     <string name="txt_tempoResp">"Tempo de Resposta: "</string>
     <string name="txt_tempo_resp_value"></string>
+    <string name="btn_terminar">Terminar</string>
+    <string name="btn_seguinte">Seguinte</string>
 
 </resources>

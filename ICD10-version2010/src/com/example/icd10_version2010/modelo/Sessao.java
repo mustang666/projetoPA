@@ -23,6 +23,23 @@ public class Sessao {
 		listaQuestoes = new ListaSimples<Questao>(
 				new ComparacaoQuestoesTempoResp());
 	}
+	
+	
+
+	public Sessao(Date dataSessao, float score, int nrPerguntasApresentadas,
+			int nrRespostasCorretas, float tempoTotal,
+			float tempoMedioResposta, float tempoMelhorResposta) {
+		super();
+		this.dataSessao = dataSessao;
+		this.score = score;
+		this.nrPerguntasApresentadas = nrPerguntasApresentadas;
+		this.nrRespostasCorretas = nrRespostasCorretas;
+		this.tempoTotal = tempoTotal;
+		this.tempoMedioResposta = tempoMedioResposta;
+		this.tempoMelhorResposta = tempoMelhorResposta;
+	}
+
+
 
 	public void addQuestao(Questao q) {
 		listaQuestoes.inserir(q);

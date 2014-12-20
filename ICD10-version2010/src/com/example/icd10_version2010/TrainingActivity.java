@@ -34,18 +34,16 @@ public class TrainingActivity extends Activity {
 	private TextView pergunta;
 	private Button terminar;
 	private Button submeter;
-	private boolean isClicked;
 	private RadioGroup radioGroup;
 	private int posicaoCerta;
 	private Questao questao;
 	private double startTime;
 	private double endTime;
-	private boolean acertou;
 	private AlertDialog alertPerguntaCerta;
 	private TextView tempoResposta;
 	private String tempo;
 	private View alert;
-	final Context context=this;
+	final Context context = this;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +64,8 @@ public class TrainingActivity extends Activity {
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		LayoutInflater inflater = this.getLayoutInflater();
-		alert=inflater.inflate(R.layout.alert_acertou, null);
-		
-		
-		
+		alert = inflater.inflate(R.layout.alert_acertou, null);
+
 		alertPerguntaCerta = builder
 				.setView(alert)
 				.setPositiveButton(R.string.ok_alert,
@@ -107,31 +103,29 @@ public class TrainingActivity extends Activity {
 
 		submeter.setOnClickListener(new OnClickListener() {
 
-			
-
 			@Override
 			public void onClick(View v) {
 				endTime = System.currentTimeMillis() - startTime;
 				questao.setTempoResposta(endTime);
 				sessao.addQuestao(questao);
+				sessao.setNrPerguntasApresentadas(sessao.getNrPerguntasApresentadas()+1);
+				
 
 				if (radioGroup.getCheckedRadioButtonId() == ((RadioButton) radioGroup
 						.getChildAt(posicaoCerta)).getId()) {
-					acertou = true;
-					tempo=Double.toString((questao.getTempoResposta() / 1000));
-					
-					
-					
+					sessao.setNrRespostasCorretas(sessao.getNrRespostasCorretas()+1);
+					tempo = Double.toString((questao.getTempoResposta() / 1000));
+
 					final Dialog dialog = new Dialog(context);
 					dialog.setContentView(R.layout.alert_acertou);
-					
-					TextView texto = (TextView)dialog.findViewById(R.id.txtTempoResp_value);
-					
+
+					TextView texto = (TextView) dialog
+							.findViewById(R.id.txtTempoResp_value);
+
 					texto.setText(tempo + "s");
 					dialog.show();
-				
+
 				} else {
-					acertou = false;
 					alertPerguntaCerta.show();
 				}
 
@@ -142,9 +136,12 @@ public class TrainingActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				isClicked = false;
 				flipTrain.setDisplayedChild(flipTrain
 						.indexOfChild(findViewById(R.id.flipFeedback)));
+				sessao.setScore(sessao.getNrRespostasCorretas()/(float)sessao.getNrPerguntasApresentadas());
+				
+				
+				
 			}
 		});
 
