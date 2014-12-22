@@ -15,8 +15,8 @@
             android:id="@+id/flipComecar"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:background="@drawable/questiont" >
+            android:background="@drawable/questiont"
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/textView2"
@@ -45,85 +45,191 @@
                 android:layout_marginTop="180dp"
                 android:text="@string/btn_ComecarTraining" />
         </LinearLayout>
- <RelativeLayout
-        android:id="@+id/flipQuestoes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/txt_Pergunta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:text="TextView"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <RadioGroup
-            android:id="@+id/radioQuestoes"
+        <RelativeLayout
+            android:id="@+id/flipQuestoes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txt_Pergunta"
-            android:layout_marginTop="25dp"
-            android:paddingTop="20dp" >
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-            <RadioButton
-                android:id="@+id/radio0"
+            <TextView
+                android:id="@+id/txt_Pergunta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/radiobtn0"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:text="TextView"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:id="@+id/radioQuestoes"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/radioBtn1"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/txt_Pergunta"
+                android:layout_marginTop="25dp"
+                android:paddingTop="20dp" >
 
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/radio0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radiobtn0"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RadioButton
+                    android:id="@+id/radio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radioBtn1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RadioButton
+                    android:id="@+id/radio2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radioBtn2"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RadioButton
+                    android:id="@+id/radio3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radioBtn3"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_pergSeguinte"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:text="@string/radioBtn2"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/radioQuestoes"
+                android:layout_marginTop="50dp"
+                android:text="@string/btn_PergSeguinte" />
 
-            <RadioButton
-                android:id="@+id/radio3"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btn_terminarTraining"
+                android:layout_width="146dp"
                 android:layout_height="wrap_content"
-                android:text="@string/radioBtn3"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/btn_pergSeguinte"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/radioQuestoes"
-            android:layout_marginTop="50dp"
-            android:text="@string/btn_PergSeguinte" />
-
-        <Button
-            android:id="@+id/btn_terminarTraining"
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/btn_pergSeguinte"
-            android:layout_alignBottom="@+id/btn_pergSeguinte"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/btn_pergSeguinte"
-            android:text="@string/btn_terminarTrain" />
-
-    </RelativeLayout>
+                android:layout_alignBaseline="@+id/btn_pergSeguinte"
+                android:layout_alignBottom="@+id/btn_pergSeguinte"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/btn_pergSeguinte"
+                android:text="@string/btn_terminarTrain" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/flipFeedback"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Estatisticas de Treino"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="26dp"
+                android:text="Nº Respostas Corretas:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView2"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="22dp"
+                android:text="Nº Respostas Apresentadas:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView3"
+                android:layout_centerVertical="true"
+                android:text="Tempo Melhor Resposta:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView4"
+                android:layout_below="@+id/textView4"
+                android:layout_marginTop="21dp"
+                android:text="Tempo Médio Resposta:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView5"
+                android:layout_below="@+id/textView5"
+                android:layout_marginTop="24dp"
+                android:text="Tempo Total Sessão:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/txtNRespC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView3"
+                android:layout_toRightOf="@+id/textView5"
+                android:text="x"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/txtNRespAp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_alignBottom="@+id/textView3"
+                android:layout_alignRight="@+id/textView1"
+                android:text="x"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/txtTMedioR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView6"
+                android:layout_toRightOf="@+id/txtNRespC"
+                android:text="x"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/txtTMResp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView5"
+                android:layout_toRightOf="@+id/textView10"
+                android:text="x"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/txtTtotalS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView6"
+                android:layout_alignBottom="@+id/textView6"
+                android:layout_alignRight="@+id/textView2"
+                android:text="x"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
     </ViewFlipper>
 

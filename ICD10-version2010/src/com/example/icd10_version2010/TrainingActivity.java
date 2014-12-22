@@ -44,6 +44,11 @@ public class TrainingActivity extends Activity {
 	private View alert;
 	final Context context = this;
 	private boolean acertou = false;
+	private TextView NRespostasCorretas;
+	private TextView NRespostasApresentadas;
+	private TextView TMelhorResposta;
+	private TextView TMedioResposta;
+	private TextView TtotalSessao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -228,4 +233,11 @@ public class TrainingActivity extends Activity {
 		}
 		startTime = System.currentTimeMillis();
 	}
+
+	// NRespostasCorretas = (TextView)findViewById(R.id.txtNRespC);
+	// NRespostasApresentadas = (TextView) findViewById(R.id.txtNRespAp);
+	// TMelhorResposta = (TextView) findViewById(R.id.txtTMResp);
+	// TMedioResposta = (TextView) findViewById(R.id.txtTMedioR);
+	// TtotalSessao = (TextView) findViewById(R.id.txtTtotalS);
+
 }
