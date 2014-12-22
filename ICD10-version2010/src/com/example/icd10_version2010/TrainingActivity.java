@@ -4,7 +4,6 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -44,6 +43,7 @@ public class TrainingActivity extends Activity {
 	private String tempo;
 	private View alert;
 	final Context context = this;
+	private boolean acertou = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,24 +62,6 @@ public class TrainingActivity extends Activity {
 		radioGroup = (RadioGroup) findViewById(R.id.radioQuestoes);
 		tempoResposta = (TextView) findViewById(R.id.txtTempoR);
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		LayoutInflater inflater = this.getLayoutInflater();
-		alert = inflater.inflate(R.layout.alert_acertou, null);
-
-		alertPerguntaCerta = builder
-				.setView(alert)
-				.setPositiveButton(R.string.ok_alert,
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int id) {
-							}
-						})
-				.setNegativeButton(R.string.cancelar_alert,
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-							}
-						}).create();
-
 		flipTrain.setDisplayedChild(flipTrain
 				.indexOfChild(findViewById(R.id.flipComecar)));
 
@@ -95,7 +77,7 @@ public class TrainingActivity extends Activity {
 					sessao = new Sessao();
 
 					fazerPergunta();
-					startTime = System.currentTimeMillis();
+
 				}
 
 			}
@@ -108,25 +90,19 @@ public class TrainingActivity extends Activity {
 				endTime = System.currentTimeMillis() - startTime;
 				questao.setTempoResposta(endTime);
 				sessao.addQuestao(questao);
-				sessao.setNrPerguntasApresentadas(sessao.getNrPerguntasApresentadas()+1);
-				
+				sessao.setNrPerguntasApresentadas(sessao
+						.getNrPerguntasApresentadas() + 1);
+				sessao.setTempoTotal(sessao.getTempoTotal()
+						+ questao.getTempoResposta());
 
 				if (radioGroup.getCheckedRadioButtonId() == ((RadioButton) radioGroup
 						.getChildAt(posicaoCerta)).getId()) {
-					sessao.setNrRespostasCorretas(sessao.getNrRespostasCorretas()+1);
+					sessao.setNrRespostasCorretas(sessao
+							.getNrRespostasCorretas() + 1);
 					tempo = Double.toString((questao.getTempoResposta() / 1000));
-
-					final Dialog dialog = new Dialog(context);
-					dialog.setContentView(R.layout.alert_acertou);
-
-					TextView texto = (TextView) dialog
-							.findViewById(R.id.txtTempoResp_value);
-
-					texto.setText(tempo + "s");
-					dialog.show();
-
+					displayAlertDialog(true);
 				} else {
-					alertPerguntaCerta.show();
+					displayAlertDialog(false);
 				}
 
 			}
@@ -136,29 +112,82 @@ public class TrainingActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				flipTrain.setDisplayedChild(flipTrain
-						.indexOfChild(findViewById(R.id.flipFeedback)));
-				sessao.setScore(sessao.getNrRespostasCorretas()/(float)sessao.getNrPerguntasApresentadas());
-				
-				
-				
+
 			}
 		});
 
 	}
 
+	public void displayAlertDialog(boolean acertou) {
+		if (tempo != null) {
+			LayoutInflater inflater = getLayoutInflater();
+			View alertLayout;
+			if (acertou) {
+				alertLayout = inflater.inflate(R.layout.alert_acertou, null);
+			} else {
+				alertLayout = inflater.inflate(R.layout.alert_errou, null);
+			}
+
+			final TextView tresposta = (TextView) alertLayout
+					.findViewById(R.id.txtTempoResp_value);
+			tresposta.setText(tempo + "s");
+
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			alert.setView(alertLayout);
+			alert.setCancelable(false);
+			alert.setNegativeButton("Terminar",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							terminarSessao();
+						}
+					});
+
+			alert.setPositiveButton("Seguinte",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							limparQuizz();
+							fazerPergunta();
+						}
+					});
+			AlertDialog dialog = alert.create();
+			dialog.show();
+		}
+
+	}
+
+	protected void limparQuizz() {
+		pergunta.setText("");
+		for (int i = 0; i < questao.NROPCOES; i++) {
+			((RadioButton) radioGroup.getChildAt(i)).setText("");
+
+		}
+		radioGroup.clearCheck();
+	}
+
+	protected void terminarSessao() {
+		sessao.setScore(sessao.getNrRespostasCorretas()
+				/ (float) sessao.getNrPerguntasApresentadas());
+		sessao.setTempoMedioResposta(sessao.getTempoTotal()
+				/ (float) sessao.getNrPerguntasApresentadas());
+		// sessao.setTempoMelhorResposta(sessao.get)
+		flipTrain.setDisplayedChild(flipTrain
+				.indexOfChild(findViewById(R.id.flipFeedback)));
+
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.training, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -176,6 +205,7 @@ public class TrainingActivity extends Activity {
 
 		((RadioButton) radioGroup.getChildAt(posicaoCerta)).setText(questao
 				.getOpcoes().get(0).getCampo());
+
 		questao.setRespostaCerta(questao.getOpcoes().get(0).getCampo());
 
 		for (int i = 1; i < questao.NROPCOES; i++) {
@@ -196,5 +226,6 @@ public class TrainingActivity extends Activity {
 				}
 			}
 		}
+		startTime = System.currentTimeMillis();
 	}
 }

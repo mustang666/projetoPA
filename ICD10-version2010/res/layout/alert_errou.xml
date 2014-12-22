@@ -3,7 +3,7 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/border_alert_acertou"
+    android:background="@drawable/border_alert_errou"
     android:orientation="vertical"
     android:padding="20dp" >
 
@@ -16,11 +16,11 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:paddingBottom="15dp"
-        android:shadowColor="#2ea742"
+        android:shadowColor="#ff0000"
         android:shadowDx="-2"
         android:shadowDy="2"
         android:shadowRadius="0.01"
-        android:text="@string/txt_acertou_resposta"
+        android:text="@string/txt_errou_resp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView

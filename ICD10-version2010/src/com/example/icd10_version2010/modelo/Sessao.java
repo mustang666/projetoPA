@@ -12,9 +12,9 @@ public class Sessao {
 	private float score;
 	private int nrPerguntasApresentadas;
 	private int nrRespostasCorretas;
-	private float tempoTotal;
-	private float tempoMedioResposta;
-	private float tempoMelhorResposta;
+	private double tempoTotal;
+	private double tempoMedioResposta;
+	private double tempoMelhorResposta;
 
 	private ListaSimples<Questao> listaQuestoes;
 
@@ -27,8 +27,8 @@ public class Sessao {
 	
 
 	public Sessao(Date dataSessao, float score, int nrPerguntasApresentadas,
-			int nrRespostasCorretas, float tempoTotal,
-			float tempoMedioResposta, float tempoMelhorResposta) {
+			int nrRespostasCorretas, double tempoTotal,
+			double tempoMedioResposta, double tempoMelhorResposta) {
 		super();
 		this.dataSessao = dataSessao;
 		this.score = score;
@@ -77,27 +77,27 @@ public class Sessao {
 		this.nrRespostasCorretas = nrRespostasCorretas;
 	}
 
-	public float getTempoTotal() {
+	public double getTempoTotal() {
 		return tempoTotal;
 	}
 
-	public void setTempoTotal(float tempoTotal) {
+	public void setTempoTotal(double tempoTotal) {
 		this.tempoTotal = tempoTotal;
 	}
 
-	public float getTempoMedioResposta() {
+	public double getTempoMedioResposta() {
 		return tempoMedioResposta;
 	}
 
-	public void setTempoMedioResposta(float tempoMedioResposta) {
+	public void setTempoMedioResposta(double tempoMedioResposta) {
 		this.tempoMedioResposta = tempoMedioResposta;
 	}
 
-	public float getTempoMelhorResposta() {
+	public double getTempoMelhorResposta() {
 		return tempoMelhorResposta;
 	}
 
-	public void setTempoMelhorResposta(float tempoMelhorResposta) {
+	public void setTempoMelhorResposta(double tempoMelhorResposta) {
 		this.tempoMelhorResposta = tempoMelhorResposta;
 	}
 

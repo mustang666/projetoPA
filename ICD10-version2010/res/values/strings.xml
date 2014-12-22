@@ -49,5 +49,7 @@
     <string name="txt_tempo_resp_value"></string>
     <string name="btn_terminar">Terminar</string>
     <string name="btn_seguinte">Seguinte</string>
+    <string name="title_activity_alert">AlertActivity</string>
+    <string name="txt_errou_resp">Resposta Incorreta!</string>
 
 </resources>
