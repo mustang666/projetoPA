@@ -4,13 +4,28 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class EstatQuestActivity extends Activity {
+
+	private TextView NRespostasCorretas;
+	private TextView NRespostasApresentadas;
+	private TextView TMelhorResposta;
+	private TextView TMedioResposta;
+	private TextView TtotalSessao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_estat_quest);
+		
+		NRespostasCorretas = (TextView)findViewById(R.id.txtNRespC);
+		NRespostasApresentadas = (TextView) findViewById(R.id.txtNRespAp);
+		TMelhorResposta = (TextView) findViewById(R.id.txtTMResp);
+		TMedioResposta = (TextView) findViewById(R.id.txtTMedioR);
+		TtotalSessao = (TextView) findViewById(R.id.txtTtotalS);
+		
 	}
 
 	@Override

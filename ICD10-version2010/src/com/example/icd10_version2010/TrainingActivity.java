@@ -126,7 +126,10 @@ public class TrainingActivity extends Activity {
 					dialog.show();
 
 				} else {
-					alertPerguntaCerta.show();
+					final Dialog dialog = new Dialog(context);
+					dialog.setContentView(R.layout.alert_errou);
+					dialog.show();
+	//				alertPerguntaCerta.show();
 				}
 
 			}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/border_alert_errou"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <TextView
+        android:id="@+id/txtTempoResp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtTempoR"
+        android:layout_alignTop="@+id/txtTempoR"
+        android:layout_toRightOf="@+id/txtTempoR"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/btnSeguinte"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnTerminar"
+        android:layout_alignBottom="@+id/btnTerminar"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/btnTerminar"
+        android:text="@string/btn_seguinte" />
+
+    <Button
+        android:id="@+id/btnTerminar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtTempoR"
+        android:layout_marginTop="21dp"
+        android:text="@string/btn_terminar" />
+
+    <TextView
+        android:id="@+id/respErrada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:paddingBottom="15dp"
+        android:shadowColor="#FF0000"
+        android:shadowDx="-2"
+        android:shadowDy="2"
+        android:shadowRadius="0.01"
+        android:text="Errou a Resposta!"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txtTempoR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnTerminar"
+        android:layout_below="@+id/respErrada"
+        android:text="@string/txt_tempoResp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>
