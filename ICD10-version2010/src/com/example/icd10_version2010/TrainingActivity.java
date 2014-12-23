@@ -209,8 +209,8 @@ public class TrainingActivity extends Activity {
 		sessao.setTempoMelhorResposta(sessao.getTempoMelhorResposta());
 		flipTrain.setDisplayedChild(flipTrain
 				.indexOfChild(findViewById(R.id.flipFeedback)));
-		nrRespostasCorretas.setText(sessao.getNrRespostasCorretas());
-		nrRespostasApresentadas.setText(sessao.getNrPerguntasApresentadas());
+		nrRespostasCorretas.setText(sessao.getNrRespostasCorretas()+"");
+		nrRespostasApresentadas.setText(sessao.getNrPerguntasApresentadas()+"");
 		nrTMelhorResposta.setText(sessao.getTempoMelhorResposta() + "s");
 		nrTMedioResposta.setText(sessao.getTempoMedioResposta() + "s");
 		nrTtotalSessao.setText(sessao.getTempoTotal() + "s");
