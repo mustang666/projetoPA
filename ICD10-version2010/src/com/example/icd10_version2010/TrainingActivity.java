@@ -39,16 +39,18 @@ public class TrainingActivity extends Activity {
 	private double startTime;
 	private double endTime;
 	private AlertDialog alertPerguntaCerta;
-	private TextView tempoResposta;
 	private String tempo;
 	private View alert;
 	final Context context = this;
 	private boolean acertou = false;
-	private TextView NRespostasCorretas;
-	private TextView NRespostasApresentadas;
-	private TextView TMelhorResposta;
-	private TextView TMedioResposta;
-	private TextView TtotalSessao;
+	private TextView nrRespostasCorretas;
+	private TextView nrRespostasApresentadas;
+	private TextView nrTMelhorResposta;
+	private TextView nrTMedioResposta;
+	private TextView nrTtotalSessao;
+	private TextView perguntaCerta;
+	private TextView respostaCerta;
+	private TextView tresposta;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,13 @@ public class TrainingActivity extends Activity {
 		radio3 = (RadioButton) findViewById(R.id.radio3);
 		pergunta = (TextView) findViewById(R.id.txt_Pergunta);
 		radioGroup = (RadioGroup) findViewById(R.id.radioQuestoes);
-		tempoResposta = (TextView) findViewById(R.id.txtTempoR);
+		perguntaCerta = (TextView) findViewById(R.id.txt_pergunta_alert_errou);
+
+		nrRespostasCorretas = (TextView) findViewById(R.id.txtNRespC_value);
+		nrRespostasApresentadas = (TextView) findViewById(R.id.txtNRespAp_value);
+		nrTMelhorResposta = (TextView) findViewById(R.id.txtTMResp_value);
+		nrTMedioResposta = (TextView) findViewById(R.id.txtTMedioR_value);
+		nrTtotalSessao = (TextView) findViewById(R.id.txtTtotalS_value);
 
 		flipTrain.setDisplayedChild(flipTrain
 				.indexOfChild(findViewById(R.id.flipComecar)));
@@ -99,16 +107,18 @@ public class TrainingActivity extends Activity {
 						.getNrPerguntasApresentadas() + 1);
 				sessao.setTempoTotal(sessao.getTempoTotal()
 						+ questao.getTempoResposta());
+				tempo = Double.toString((questao.getTempoResposta() / 1000));
 
 				if (radioGroup.getCheckedRadioButtonId() == ((RadioButton) radioGroup
 						.getChildAt(posicaoCerta)).getId()) {
 					sessao.setNrRespostasCorretas(sessao
 							.getNrRespostasCorretas() + 1);
-					tempo = Double.toString((questao.getTempoResposta() / 1000));
-					displayAlertDialog(true);
+					acertou = true;
+
 				} else {
-					displayAlertDialog(false);
+					acertou = false;
 				}
+				displayAlertDialog();
 
 			}
 		});
@@ -117,24 +127,33 @@ public class TrainingActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-
+				terminarSessao();
 			}
 		});
 
 	}
 
-	public void displayAlertDialog(boolean acertou) {
+	public void displayAlertDialog() {
 		if (tempo != null) {
 			LayoutInflater inflater = getLayoutInflater();
 			View alertLayout;
+
 			if (acertou) {
 				alertLayout = inflater.inflate(R.layout.alert_acertou, null);
+				tresposta = (TextView) alertLayout
+						.findViewById(R.id.txtTempoResp_value);
 			} else {
 				alertLayout = inflater.inflate(R.layout.alert_errou, null);
+				tresposta = (TextView) alertLayout
+						.findViewById(R.id.txtTempoResp_value_alert_errou);
+				perguntaCerta = (TextView) alertLayout
+						.findViewById(R.id.txt_pergunta_alert_errou);
+				respostaCerta = (TextView) alertLayout
+						.findViewById(R.id.txt_resposta_alert_errou);
+				perguntaCerta.setText(questao.getPergunta() + " é:");
+				respostaCerta.setText(questao.getRespostaCerta());
 			}
 
-			final TextView tresposta = (TextView) alertLayout
-					.findViewById(R.id.txtTempoResp_value);
 			tresposta.setText(tempo + "s");
 
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -165,11 +184,20 @@ public class TrainingActivity extends Activity {
 	}
 
 	protected void limparQuizz() {
+
+		if (!acertou) {
+			perguntaCerta.setText("");
+			respostaCerta.setText("");
+		}
+
 		pergunta.setText("");
+		tresposta.setText("");
+
 		for (int i = 0; i < questao.NROPCOES; i++) {
 			((RadioButton) radioGroup.getChildAt(i)).setText("");
 
 		}
+
 		radioGroup.clearCheck();
 	}
 
@@ -178,9 +206,14 @@ public class TrainingActivity extends Activity {
 				/ (float) sessao.getNrPerguntasApresentadas());
 		sessao.setTempoMedioResposta(sessao.getTempoTotal()
 				/ (float) sessao.getNrPerguntasApresentadas());
-		// sessao.setTempoMelhorResposta(sessao.get)
+		sessao.setTempoMelhorResposta(sessao.getTempoMelhorResposta());
 		flipTrain.setDisplayedChild(flipTrain
 				.indexOfChild(findViewById(R.id.flipFeedback)));
+		nrRespostasCorretas.setText(sessao.getNrRespostasCorretas());
+		nrRespostasApresentadas.setText(sessao.getNrPerguntasApresentadas());
+		nrTMelhorResposta.setText(sessao.getTempoMelhorResposta() + "s");
+		nrTMedioResposta.setText(sessao.getTempoMedioResposta() + "s");
+		nrTtotalSessao.setText(sessao.getTempoTotal() + "s");
 
 	}
 
@@ -204,7 +237,9 @@ public class TrainingActivity extends Activity {
 		questao = new Questao();
 		questao.gerarPergunta();
 
-		pergunta.setText(questao.getPergunta());
+		pergunta.setText((questao.getTipoQuestao() == 0 ? "Qual a descrição para este código ICD10"
+				: "Qual o código ICD10 que identifica esta descrição")
+				+ questao.getPergunta() + "?");
 		Random r = new Random();
 		posicaoCerta = r.nextInt(4);
 
@@ -233,11 +268,5 @@ public class TrainingActivity extends Activity {
 		}
 		startTime = System.currentTimeMillis();
 	}
-
-	// NRespostasCorretas = (TextView)findViewById(R.id.txtNRespC);
-	// NRespostasApresentadas = (TextView) findViewById(R.id.txtNRespAp);
-	// TMelhorResposta = (TextView) findViewById(R.id.txtTMResp);
-	// TMedioResposta = (TextView) findViewById(R.id.txtTMedioR);
-	// TtotalSessao = (TextView) findViewById(R.id.txtTtotalS);
 
 }

@@ -13,7 +13,6 @@
         android:layout_marginTop="25dp" >
 
         <TextView
-            android:id="@+id/rAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txtTempoTotal"
@@ -30,11 +29,10 @@
         android:id="@+id/LinearLayoutCapitulos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" 
-        android:layout_marginTop="25dp" >
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/txtTempoResp_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txtLeituraCapitulos"
@@ -51,11 +49,10 @@
         android:id="@+id/LinearLayoutBlocos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" 
-        android:layout_marginTop="25dp" >
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txtLeituraBlocos"
@@ -72,10 +69,9 @@
         android:id="@+id/linearLayoutCod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"  >
+        android:layout_marginTop="25dp" >
 
         <TextView
-            android:id="@+id/txtNRespC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txtLeituraCodigos"
@@ -92,11 +88,10 @@
         android:id="@+id/linearLayoutTotalItems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="25dp"  >
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txtTotalItems"
@@ -116,7 +111,6 @@
         android:layout_marginTop="25dp" >
 
         <TextView
-            android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
@@ -135,10 +129,9 @@
         android:id="@+id/linearLayoutTotalBlocos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"  >
+        android:layout_marginTop="25dp" >
 
         <TextView
-            android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txtTotalBloco"
@@ -154,11 +147,10 @@
         android:id="@+id/linearLayoutTotalCodigos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="25dp"  >
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txtTotalCodigos"

@@ -5,7 +5,45 @@
     android:layout_height="fill_parent"
     android:background="@drawable/border_alert_errou"
     android:orientation="vertical"
-    android:padding="20dp" >
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/txt_pergunta_alert_errou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_resp_aRespCertae"
+        android:layout_below="@+id/txt_resp_aRespCertae"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txt_resposta_alert_errou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/txt_pergunta_alert_errou"
+        android:layout_below="@+id/txt_pergunta_alert_errou"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txtTempoResp_value_alert_errou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtTempoR"
+        android:layout_alignBottom="@+id/txtTempoR"
+        android:layout_toRightOf="@+id/txtTempoR"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txtTempoR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_resposta_alert_errou"
+        android:layout_below="@+id/txt_resposta_alert_errou"
+        android:layout_marginTop="15dp"
+        android:text="@string/txt_tempoResp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/rAnswer"
@@ -13,8 +51,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
         android:paddingBottom="15dp"
         android:shadowColor="#ff0000"
         android:shadowDx="-2"
@@ -24,21 +60,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/txtTempoR"
-        android:layout_width="wrap_content"
+        android:id="@+id/txt_resp_aRespCertae"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/rAnswer"
-        android:text="@string/txt_tempoResp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/txtTempoResp_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtTempoR"
-        android:layout_alignTop="@+id/txtTempoR"
-        android:layout_toRightOf="@+id/txtTempoR"
+        android:layout_centerHorizontal="true"
+        android:text="A resposta certa para a questão: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

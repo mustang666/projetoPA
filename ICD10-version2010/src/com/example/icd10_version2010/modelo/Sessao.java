@@ -23,8 +23,6 @@ public class Sessao {
 		listaQuestoes = new ListaSimples<Questao>(
 				new ComparacaoQuestoesTempoResp());
 	}
-	
-	
 
 	public Sessao(Date dataSessao, float score, int nrPerguntasApresentadas,
 			int nrRespostasCorretas, double tempoTotal,
@@ -38,8 +36,6 @@ public class Sessao {
 		this.tempoMedioResposta = tempoMedioResposta;
 		this.tempoMelhorResposta = tempoMelhorResposta;
 	}
-
-
 
 	public void addQuestao(Questao q) {
 		listaQuestoes.inserir(q);
@@ -94,7 +90,7 @@ public class Sessao {
 	}
 
 	public double getTempoMelhorResposta() {
-		return tempoMelhorResposta;
+		return listaQuestoes.consultar(0).getTempoResposta();
 	}
 
 	public void setTempoMelhorResposta(double tempoMelhorResposta) {

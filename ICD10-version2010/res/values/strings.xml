@@ -51,5 +51,7 @@
     <string name="btn_seguinte">Seguinte</string>
     <string name="title_activity_alert">AlertActivity</string>
     <string name="txt_errou_resp">Resposta Incorreta!</string>
+    <string name="titulo_estatisticas_treino">Estatísticas Quizz</string>
+    <string name="btn_sair_quizz">Sair</string>
 
 </resources>
