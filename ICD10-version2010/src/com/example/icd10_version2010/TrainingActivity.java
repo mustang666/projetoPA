@@ -112,7 +112,7 @@ public class TrainingActivity extends Activity {
 			public void onClick(View v) {
 				isFirst = false;
 				// ---TEMPO DE RESPOSTA
-				endTime = System.currentTimeMillis() - startTime;
+				endTime = (System.currentTimeMillis() - startTime)/1000;
 
 				splitter = Double.toString(endTime).split("\\.");
 				decPlaces = splitter[1].length();
@@ -123,7 +123,7 @@ public class TrainingActivity extends Activity {
 				} else {
 					try {
 						questao.setTempoResposta((Double) df.parse(df
-								.format(endTime / 1000)));
+								.format(endTime)));
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
