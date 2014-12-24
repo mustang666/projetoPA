@@ -1,11 +1,14 @@
 package com.example.icd10_version2010;
 
+import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.util.Random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,6 +54,11 @@ public class TrainingActivity extends Activity {
 	private TextView perguntaCerta;
 	private TextView respostaCerta;
 	private TextView tresposta;
+	private boolean isFirst = false;
+	private DecimalFormat df;
+	private TextView score;
+	private int decPlaces;
+	private String[] splitter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +82,8 @@ public class TrainingActivity extends Activity {
 		nrTMelhorResposta = (TextView) findViewById(R.id.txtTMResp_value);
 		nrTMedioResposta = (TextView) findViewById(R.id.txtTMedioR_value);
 		nrTtotalSessao = (TextView) findViewById(R.id.txtTtotalS_value);
+		score = (TextView) findViewById(R.id.txt_score_value);
+		df = new DecimalFormat("#.##");
 
 		flipTrain.setDisplayedChild(flipTrain
 				.indexOfChild(findViewById(R.id.flipComecar)));
@@ -88,7 +98,7 @@ public class TrainingActivity extends Activity {
 				if (flipTrain.getDisplayedChild() == flipTrain
 						.indexOfChild(findViewById(R.id.flipQuestoes))) {
 					sessao = new Sessao();
-
+					isFirst = true;
 					fazerPergunta();
 
 				}
@@ -100,21 +110,56 @@ public class TrainingActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				isFirst = false;
+				// ---TEMPO DE RESPOSTA
 				endTime = System.currentTimeMillis() - startTime;
-				questao.setTempoResposta(endTime);
+
+				splitter = Double.toString(endTime).split("\\.");
+				decPlaces = splitter[1].length();
+
+				if (decPlaces == 1 && splitter[1].equals("0")) {
+					Long endTimeL = (long) endTime;
+					questao.setTempoResposta(endTimeL.doubleValue());
+				} else {
+					try {
+						questao.setTempoResposta((Double) df.parse(df
+								.format(endTime / 1000)));
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+
 				sessao.addQuestao(questao);
 				sessao.setNrPerguntasApresentadas(sessao
 						.getNrPerguntasApresentadas() + 1);
-				sessao.setTempoTotal(sessao.getTempoTotal()
-						+ questao.getTempoResposta());
-				tempo = Double.toString((questao.getTempoResposta() / 1000));
+
+				// TEMPO TOTAL
+				double tempoTotal = sessao.getTempoTotal()
+						+ questao.getTempoResposta();
+
+				splitter = Double.toString(tempoTotal).split("\\.");
+				decPlaces = splitter[1].length();
+
+				if (decPlaces == 1 && splitter[1].equals("0")) {
+					Long tempoTotalL = (long) tempoTotal;
+					sessao.setTempoTotal(tempoTotalL.doubleValue());
+				} else {
+					try {
+						sessao.setTempoTotal((Double) df.parse(df
+								.format(tempoTotal)));
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+
+				}
+
+				tempo = Double.toString(questao.getTempoResposta());
 
 				if (radioGroup.getCheckedRadioButtonId() == ((RadioButton) radioGroup
 						.getChildAt(posicaoCerta)).getId()) {
 					sessao.setNrRespostasCorretas(sessao
 							.getNrRespostasCorretas() + 1);
 					acertou = true;
-
 				} else {
 					acertou = false;
 				}
@@ -202,18 +247,48 @@ public class TrainingActivity extends Activity {
 	}
 
 	protected void terminarSessao() {
-		sessao.setScore(sessao.getNrRespostasCorretas()
-				/ (float) sessao.getNrPerguntasApresentadas());
-		sessao.setTempoMedioResposta(sessao.getTempoTotal()
-				/ (float) sessao.getNrPerguntasApresentadas());
-		sessao.setTempoMelhorResposta(sessao.getTempoMelhorResposta());
-		flipTrain.setDisplayedChild(flipTrain
-				.indexOfChild(findViewById(R.id.flipFeedback)));
-		nrRespostasCorretas.setText(sessao.getNrRespostasCorretas()+"");
-		nrRespostasApresentadas.setText(sessao.getNrPerguntasApresentadas()+"");
-		nrTMelhorResposta.setText(sessao.getTempoMelhorResposta() + "s");
-		nrTMedioResposta.setText(sessao.getTempoMedioResposta() + "s");
-		nrTtotalSessao.setText(sessao.getTempoTotal() + "s");
+		if (!isFirst) {
+
+			sessao.setScore((sessao.getNrRespostasCorretas() / (float) sessao
+					.getNrPerguntasApresentadas()) * 100);
+
+			// TEMPO MEDIO
+			double tempoMedio = sessao.getTempoTotal()
+					/ (float) sessao.getNrPerguntasApresentadas();
+
+			splitter = Double.toString(tempoMedio).split("\\.");
+			decPlaces = splitter[1].length();
+
+			if (decPlaces == 1 && splitter[1].equals("0")) {
+				Long tempoMedioL = (long) tempoMedio;
+				sessao.setTempoMedioResposta(tempoMedioL.doubleValue());
+			} else {
+				try {
+					sessao.setTempoMedioResposta((Double) df.parse(df
+							.format(tempoMedio)));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
+			}
+
+			sessao.setTempoMelhorResposta(sessao.getTempoMelhorResposta());
+
+			flipTrain.setDisplayedChild(flipTrain
+					.indexOfChild(findViewById(R.id.flipFeedback)));
+			score.setText(sessao.getScore() + "");
+			nrRespostasCorretas.setText(sessao.getNrRespostasCorretas() + "");
+			nrRespostasApresentadas.setText(sessao.getNrPerguntasApresentadas()
+					+ "");
+			nrTMelhorResposta.setText(sessao.getTempoMelhorResposta() + "s");
+			nrTMedioResposta.setText(sessao.getTempoMedioResposta() + "s");
+			nrTtotalSessao.setText(sessao.getTempoTotal() + "s");
+		} else {
+			Intent intent = new Intent(getApplicationContext(),
+					QuestoesActivity.class);
+
+			startActivity(intent);
+		}
 
 	}
 
@@ -237,8 +312,8 @@ public class TrainingActivity extends Activity {
 		questao = new Questao();
 		questao.gerarPergunta();
 
-		pergunta.setText((questao.getTipoQuestao() == 0 ? "Qual a descrição para este código ICD10"
-				: "Qual o código ICD10 que identifica esta descrição")
+		pergunta.setText((questao.getTipoQuestao() == 0 ? "Qual a descrição para este código ICD10 "
+				: "Qual o código ICD10 que identifica esta descrição ")
 				+ questao.getPergunta() + "?");
 		Random r = new Random();
 		posicaoCerta = r.nextInt(4);
